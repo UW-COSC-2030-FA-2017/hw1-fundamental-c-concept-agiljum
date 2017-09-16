@@ -1,0 +1,33 @@
+//Ana Giljum
+//COSC 2030
+//Copy and Move Constructors
+
+class Class {
+
+public:
+	constructorname(); //Standard constructor
+	constructorname(const constructorname &obj); //Copy constructor
+	constructorname(constructorname&& obj); //Move constructor
+
+private:
+	int *ptr;
+	int data;
+};
+
+//Copy constructor
+constructorname::constructorname(const constructorname &obj)
+{
+	size = obj.size();
+	ptr = new int[size];
+	for (int i = 0; i < size; i++)
+	{
+		ptr[i] = obj.ptr[i];
+	}
+}
+
+//Move constructor
+constructorname::constructorname(constructorname&& obj)
+{
+	data = obj.data;
+	obj.data = nullptr;
+}
